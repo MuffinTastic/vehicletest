@@ -1,0 +1,21 @@
+{
+	"name": "Vehicle Test",
+	"version": "1.0",
+	"sharedassets": "*.*",
+
+	"depends": 
+	[
+		"base",
+		"rust",
+		"citizen"
+	],
+	
+	"gamemodes":
+	[
+		{
+			"name": "vehicletest",
+			"title": "Vehicle Test",
+			"description": "Vehicle testing"
+		}
+	]
+}
