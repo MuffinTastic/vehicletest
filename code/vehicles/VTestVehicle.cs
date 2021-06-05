@@ -92,7 +92,7 @@ namespace VehicleTest
 					(input.Down( InputButton.Jump ) ? 1.0f : 0.0f) + (input.Down( InputButton.Duck ) ? -1.0f : 0.0f)
 				);
 
-				InputState.desiredThrottle = (input.Down( InputButton.Run ) ? 1 : 0) + (input.Down( InputButton.Duck ) ? -1 : 0);
+				InputState.desiredThrottle = input.Down( InputButton.Run ) ? 2.0f : (input.Down( InputButton.Walk ) ? 0.5f : 1.0f);
 
 				InputState.cameraRotation = Input.Rotation;
 				InputState.mouseDelta = input.MouseDelta;

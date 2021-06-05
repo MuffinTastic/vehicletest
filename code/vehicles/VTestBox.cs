@@ -7,8 +7,7 @@ namespace VehicleTest
 	{
 		public override string ModelPath => "models/citizen_props/crate01.vmdl";
 
-		public virtual float altitudeAcceleration => 2000;
-		public virtual float movementAcceleration => 5000;
+		public virtual float movementAcceleration => 3000;
 		public virtual float yawSpeed => 30;
 		public virtual float uprightSpeed => 5000;
 		public virtual float uprightDot => 0.5f;
@@ -19,7 +18,7 @@ namespace VehicleTest
 		{
 			base.Spawn();
 
-			Camera = new VTestVehicleCamera( 150.0f );
+			Camera = new VTestVehicleCamera( 50.0f );
 		}
 
 		public override void OnPostPhysicsStep( float dt )
@@ -58,8 +57,7 @@ namespace VehicleTest
 			if ( !hasCollision || isGrounded )
 			{
 				var hoverForce = isGrounded && InputState.desiredThrottle <= 0 ? Vector3.Zero : -1 * transform.NormalToWorld( Vector3.Up ) * -800.0f;
-				var movementForce = isGrounded ? Vector3.Zero : worldMovement * movementAcceleration;
-				var altitudeForce = transform.NormalToWorld( Vector3.Up ) * InputState.desiredThrottle * altitudeAcceleration;
+				var movementForce = isGrounded ? Vector3.Zero : worldMovement * InputState.desiredThrottle * movementAcceleration;
 				var totalForce = hoverForce + movementForce;
 				body.ApplyForce( (totalForce * alignment) * body.Mass );
 			}
