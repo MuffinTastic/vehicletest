@@ -62,6 +62,8 @@ namespace VehicleTest
 
 			client.Pawn = player;
 			ActiveChild = null;
+
+			InputState.Reset();
 		}
 		public virtual void OnPostPhysicsStep( float dt )
 		{
